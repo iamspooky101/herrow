@@ -1,0 +1,79 @@
+/* Base & layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fff0f6, #f0faff);
+  overflow: hidden;
+  transition: background 0.8s ease;
+}
+body.cute-mode {
+  /* switch to warmer pink‑lavender glow */
+  background: linear-gradient(135deg, #ffd1dc, #d1c4ff);
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Messages */
+.message {
+  max-width: 90%;
+  margin-bottom: 2rem;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.intro h1 { font-size: 1.8rem; color: #333; }
+.intro p  { font-size: 1rem; color: #555; }
+.cute h2 { font-size: 2rem; color: #D6336C; }
+.cute .subline { font-size: 1rem; color: #333; margin: 0.2rem 0; }
+.hidden { opacity: 0; transform: scale(0.9); pointer-events: none; }
+
+/* Button */
+.check-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  background: #ffb3c1;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background 0.5s ease;
+}
+.check-btn:active { transform: scale(0.95); }
+body.cute-mode .check-btn {
+  background: #d6336c;
+}
+
+/* Floating hearts (only added after click) */
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+}
+.heart {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.5rem;
+  color: #ff5370;
+  animation: floatHeart 3s ease-out forwards;
+}
+
+/* Blush character wiggle */
+.blush-character {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: blush 1s infinite alternate;
+}
+@keyframes blush {
+  from { transform: translateX(0); }
+  to   { transform: translateX(5px); }
+}
